@@ -8,7 +8,7 @@ class TaskManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      title:'tast manager',
+      title:'task manager',
       home: Splash_Screens(),
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
@@ -26,7 +26,8 @@ class TaskManager extends StatelessWidget {
               borderRadius: BorderRadius.circular(8)
             ),
             backgroundColor:AppColor.ThemeColor,
-            foregroundColor: Colors.green
+            foregroundColor: Colors.green,
+
           )
         ),
         textButtonTheme: TextButtonThemeData(
@@ -34,6 +35,11 @@ class TaskManager extends StatelessWidget {
             foregroundColor: Colors.red,
             // backgroundColor: Colors.blue
           )
+        ),
+        textTheme: TextTheme(
+          titleLarge: TextStyle(fontSize: 34,
+              fontWeight: FontWeight.bold,
+              color: Colors.amberAccent)
         )
         )
     );
