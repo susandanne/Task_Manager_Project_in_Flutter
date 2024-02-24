@@ -92,7 +92,7 @@ class _signUpState extends State<signUp> {
                              Navigator.pop(context);
                           },
                           child: Text(
-                            'Sign Ip Please',
+                            'Sign In Please',
                             style: TextStyle(
                                 color: Colors.amber,
                                 fontWeight: FontWeight.bold,
