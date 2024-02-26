@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-<<<<<<< HEAD
+
 import 'package:task_manager_project_in_flutter/presentation/screens/setpassword_screen.dart';
-=======
->>>>>>> origin/master
+
 import 'package:task_manager_project_in_flutter/presentation/screens/sign_in_screen.dart';
 import 'package:task_manager_project_in_flutter/presentation/utilitites/Colors_App.dart';
 
@@ -81,11 +80,10 @@ class _pinVerificationScreenState extends State<pinVerificationScreen> {
                   ),
                   SizedBox(width:double.infinity,
                       child:ElevatedButton(onPressed:(){
-<<<<<<< HEAD
+
                          Navigator.push(context,MaterialPageRoute(builder:(context)=>setPasswordScreen()));
-=======
-                        // Navigator.push(context,MaterialPageRoute(builder:(context)=>pinVerificationScreen()));
->>>>>>> origin/master
+
+
                       }, child:Text('verify please'))),
 
                   Row(mainAxisAlignment:MainAxisAlignment.center,
