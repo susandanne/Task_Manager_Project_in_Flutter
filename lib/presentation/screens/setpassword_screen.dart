@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:task_manager_project_in_flutter/presentation/screens/setpassword_screen.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/sign_in_screen.dart';
 import 'package:task_manager_project_in_flutter/presentation/utilitites/Colors_App.dart';
 
 import 'package:task_manager_project_in_flutter/presentation/widgets/backGroundWidget.dart';
 
-class pinVerificationScreen extends StatefulWidget {
-  const pinVerificationScreen({super.key});
+class setPasswordScreen extends StatefulWidget {
+  const setPasswordScreen({super.key});
 
   @override
-  State<pinVerificationScreen> createState() => _pinVerificationScreenState();
+  State<setPasswordScreen> createState() => _setPasswordScreenState();
 }
 
-class _pinVerificationScreenState extends State<pinVerificationScreen> {
- final TextEditingController _pinController =TextEditingController();
+class _setPasswordScreenState extends State<setPasswordScreen> {
+ final TextEditingController _PasswordController =TextEditingController();
+ final TextEditingController _confirmPasswordController =TextEditingController();
 
  final GlobalKey<FormState>formKey=GlobalKey<FormState>();
 
@@ -33,53 +33,36 @@ class _pinVerificationScreenState extends State<pinVerificationScreen> {
                     height: 200,
                   ),
                   Text(
-                    'Pin Verification please ',
+                    'Set Password  ',
                     style:Theme.of(context).textTheme.titleLarge
                   ),
                   SizedBox(
                     height: 8,
                   ),
                   Text(
-                      'A 6 digit code sent to your email for verification ',
+                      'Use A 8 digit letters with numbers  ',
                         style: TextStyle(fontWeight:FontWeight.bold,color: Colors.grey,fontSize:16 ),
                   ),   SizedBox(
                     height: 8,
                   ),
-                  PinCodeTextField(
-                   controller: _pinController,
-                    length: 6,
-                    obscureText: false,
-                    keyboardType:TextInputType.number,
-                    animationType: AnimationType.fade,
-                    pinTheme: PinTheme(
-                      shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(5),
-                      fieldHeight: 50,
-                      fieldWidth: 40,
-                      activeFillColor: Colors.white,
-                      inactiveFillColor: Colors.white,
-                      inactiveColor: AppColor.ThemeColor,
-                      selectedFillColor: Colors.white
+                  TextFormField(
+                     controller: _PasswordController,
 
-
-                    ),
-                    animationDuration: Duration(milliseconds: 300),
-                    backgroundColor: Colors.transparent,
-                    enableActiveFill: true,
-                    onCompleted: (v) {
-                    },
-                    onChanged: (value) {
-                    },
-                    appContext:context,
-                  ),
-
-                  const SizedBox(
+                    decoration: InputDecoration(hintText: 'Password'),
+                  ),  SizedBox(
                     height: 8,
                   ),
+                  TextFormField(
+                     controller: _confirmPasswordController,
+
+                    decoration: InputDecoration(hintText: 'Cpnfirm Password'),
+                  ),
+              SizedBox(
+                height: 18,),
                   SizedBox(width:double.infinity,
                       child:ElevatedButton(onPressed:(){
-                         Navigator.push(context,MaterialPageRoute(builder:(context)=>setPasswordScreen()));
-                      }, child:Text('verify please'))),
+                        Navigator.pop(context);
+                      }, child:Text('set Password'))),
 
                   Row(mainAxisAlignment:MainAxisAlignment.center,
                     children: [
@@ -98,7 +81,8 @@ class _pinVerificationScreenState extends State<pinVerificationScreen> {
   }
   @override
   void dispose() {
-    _pinController.dispose();
+    _PasswordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 }
