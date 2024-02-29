@@ -85,7 +85,7 @@ class _signUpState extends State<signUp> {
                       Text(
                         ' have an Account !!!',
                         style: TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.bold),
+                            color: Colors.red,),
                       ),
                       TextButton(
                           onPressed: () {
@@ -95,7 +95,7 @@ class _signUpState extends State<signUp> {
                             'Sign In Please',
                             style: TextStyle(
                                 color: Colors.amber,
-                                fontWeight: FontWeight.bold,
+
                                 fontSize: 20),
                           )),
                     ],

@@ -38,7 +38,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   ),
                   Text(
                       'A 6 digit code sent to your email for verification ',
-                        style: TextStyle(fontWeight:FontWeight.bold,color: Colors.grey,fontSize:16 ),
+                        style: TextStyle(color: Colors.grey,fontSize:16 ),
                   ),   SizedBox(
                     height:8,
                   ),
@@ -58,10 +58,10 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
                   Row(mainAxisAlignment:MainAxisAlignment.center,
                     children: [
-                    Text('have an Account !!!',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
+                    Text('have an Account !!!',style: TextStyle(color: Colors.red),),
                     TextButton(onPressed:(){
                       Navigator.pop(context);
-                    }, child:Text('Sign In Please',style: TextStyle(color:Colors.amber,fontWeight: FontWeight.bold,fontSize:20 ),)),
+                    }, child:Text('Sign In Please',style: TextStyle(color:Colors.amber,fontSize:20 ),)),
                   ],)
                 ],
               ),

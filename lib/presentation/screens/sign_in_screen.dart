@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/email_verification_screen.dart';
+import 'package:task_manager_project_in_flutter/presentation/screens/mainBottomNavigationScreen.dart';
+import 'package:task_manager_project_in_flutter/presentation/screens/newTask_screens.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/signup_screen.dart';
 import 'package:task_manager_project_in_flutter/presentation/widgets/backGroundWidget.dart';
 
@@ -54,18 +56,20 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 8,
                   ),
                   SizedBox(width:double.infinity,
-                      child:ElevatedButton(onPressed:(){}, child: Icon(Icons.icecream_outlined))),
+                      child:ElevatedButton(onPressed:(){
+                        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>BottomNaviagtion()), (route) => false);
+                      }, child: Icon(Icons.icecream_outlined))),
                   SizedBox(height: 16,),
                   TextButton(onPressed:(){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>EmailVerificationScreen()));
-                  }, child:Text('forget your password !!!',style: TextStyle(color:Colors.red,fontWeight: FontWeight.bold,fontSize: 24 ),)),
+                  }, child:Text('forget your password !!!',style: TextStyle(color:Colors.red,fontSize: 24 ),)),
                   SizedBox(height: 16,),
                   Row(mainAxisAlignment:MainAxisAlignment.center,
                     children: [
-                    Text('Dont have an Account?',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
+                    Text('Dont have an Account?',style: TextStyle(color: Colors.red),),
                     TextButton(onPressed:(){
                       Navigator.push(context,MaterialPageRoute(builder:(context)=>signUp()));
-                    }, child:Text('Sign Up Please',style: TextStyle(color:Colors.amber,fontWeight: FontWeight.bold,fontSize:20 ),)),
+                    }, child:Text('Sign Up Please',style: TextStyle(color:Colors.amber,fontSize:20 ),)),
                   ],)
                 ],
               ),

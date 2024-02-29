@@ -41,7 +41,7 @@ class _setPasswordScreenState extends State<setPasswordScreen> {
                   ),
                   Text(
                       'Use A 8 digit letters with numbers  ',
-                        style: TextStyle(fontWeight:FontWeight.bold,color: Colors.grey,fontSize:16 ),
+                        style: TextStyle(color: Colors.grey,fontSize:16 ),
                   ),   SizedBox(
                     height: 8,
                   ),
@@ -66,10 +66,10 @@ class _setPasswordScreenState extends State<setPasswordScreen> {
 
                   Row(mainAxisAlignment:MainAxisAlignment.center,
                     children: [
-                    Text('have an Account !!!',style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
+                    Text('have an Account !!!',style: TextStyle(color: Colors.red,),),
                     TextButton(onPressed:(){
                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:(context)=>SignInScreen()), (route) => false);
-                    }, child:Text('Sign In Please',style: TextStyle(color:Colors.amber,fontWeight: FontWeight.bold,fontSize:20 ),)),
+                    }, child:Text('Sign In Please',style: TextStyle(color:Colors.amber,fontSize:20 ),)),
                   ],)
                 ],
               ),
