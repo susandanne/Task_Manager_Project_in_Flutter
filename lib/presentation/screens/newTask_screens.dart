@@ -20,23 +20,26 @@ class _NewTaskState extends State<NewTask> {
       body:backGroundWidget(
         child:Column(
           children: [
-            SizedBox(height: 100,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListView.separated(itemCount: 4,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder:(context,index){
-                  return CardTask(amount: 18, title: 'conte',);
-                }, separatorBuilder: (_,__){
-                  return SizedBox(width: 8,);
-                }),
-              ),
-            )
-
+            TaskCounterWidget
           ],
         ) ,
       ),
     );
+  }
+  Widget get TaskCounterWidget{
+    return SizedBox(height: 100,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView.separated(itemCount: 4,
+            scrollDirection: Axis.horizontal,
+            itemBuilder:(context,index){
+              return CardTask(amount: 18, title: 'conte',);
+            }, separatorBuilder: (_,__){
+              return SizedBox(width: 8,);
+            }),
+      ),
+    );
+
   }
 }
 
