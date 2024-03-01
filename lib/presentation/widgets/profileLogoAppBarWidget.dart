@@ -8,7 +8,7 @@ PreferredSizeWidget get profileAppBar{
     backgroundColor: AppColor.ThemeColor,
     title:Row(
       children: [CircleAvatar(),SizedBox(width: 10,),
-        Expanded(child: Column(children: [Text('name',style:TextStyle(fontSize:12 ) ,),SizedBox(width: 10,),Text('email',style:TextStyle(fontSize:12 ),)],)),
+        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [Text('name',style:TextStyle(fontSize:12 ) ,),SizedBox(width: 10,),Text('email',style:TextStyle(fontSize:12 ),)],)),
         IconButton(onPressed: (){}, icon:Icon(Icons.logout_outlined),)],
     ) ,
   );
