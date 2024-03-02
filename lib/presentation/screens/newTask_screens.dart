@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_in_flutter/presentation/utilitites/Colors_App.dart';
 import 'package:task_manager_project_in_flutter/presentation/widgets/backGroundWidget.dart';
 import 'package:task_manager_project_in_flutter/presentation/widgets/profileLogoAppBarWidget.dart';
 
 import '../widgets/taskCardCounter.dart';
+import '../widgets/taskCardDetails.dart';
 
 class NewTask extends StatefulWidget {
   const NewTask({super.key});
@@ -13,6 +15,8 @@ class NewTask extends StatefulWidget {
 
 class _NewTaskState extends State<NewTask> {
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +24,16 @@ class _NewTaskState extends State<NewTask> {
       body:backGroundWidget(
         child:Column(
           children: [
-            TaskCounterWidget
+            TaskCounterWidget,
+            Expanded(child:ListView.builder(itemCount: 5,itemBuilder: (context,index){
+              return TaskCardDetails();
+            }))
           ],
         ) ,
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () {},
+        backgroundColor: AppColor.ThemeColor,
+      child: Icon(Icons.add,color: Colors.pink,),),
     );
   }
   Widget get TaskCounterWidget{
@@ -35,12 +45,14 @@ class _NewTaskState extends State<NewTask> {
             itemBuilder:(context,index){
               return CardTask(amount: 18, title: 'conte',);
             }, separatorBuilder: (_,__){
-              return SizedBox(width: 8,);
+              return SizedBox(width:12,);
             }),
       ),
     );
 
   }
 }
+
+
 
 

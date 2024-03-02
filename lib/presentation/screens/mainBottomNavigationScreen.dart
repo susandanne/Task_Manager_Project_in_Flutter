@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/newTask_screens.dart';
 
 import '../utilitites/Colors_App.dart';
+import 'Progress_Task_screens.dart';
+import 'cancelled_Task_screens.dart';
+import 'complete_Task_screens.dart';
 
 class BottomNaviagtion extends StatefulWidget {
   const BottomNaviagtion({super.key});
@@ -12,7 +15,7 @@ class BottomNaviagtion extends StatefulWidget {
 
 class _BottomNaviagtionState extends State<BottomNaviagtion> {
  int _currentIndex=0;
- List<Widget>_TaskScreens=[ NewTask(),NewTask(),NewTask(),NewTask(),];
+ List<Widget>_TaskScreens=[ NewTask(),Complete(),Progress(),Cancelled(),];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
