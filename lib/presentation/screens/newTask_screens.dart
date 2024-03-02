@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_in_flutter/presentation/screens/add_newtask_created_screens.dart';
 import 'package:task_manager_project_in_flutter/presentation/utilitites/Colors_App.dart';
 import 'package:task_manager_project_in_flutter/presentation/widgets/backGroundWidget.dart';
 import 'package:task_manager_project_in_flutter/presentation/widgets/profileLogoAppBarWidget.dart';
@@ -31,7 +32,9 @@ class _NewTaskState extends State<NewTask> {
           ],
         ) ,
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {},
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>AddNewTaskCreated()));
+      },
         backgroundColor: AppColor.ThemeColor,
       child: Icon(Icons.add,color: Colors.pink,),),
     );
