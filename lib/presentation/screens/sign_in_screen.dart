@@ -1,9 +1,14 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_in_flutter/data/base_url.dart';
+import 'package:task_manager_project_in_flutter/data/network_caller.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/email_verification_screen.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/mainBottomNavigationScreen.dart';
-import 'package:task_manager_project_in_flutter/presentation/screens/newTask_screens.dart';
 import 'package:task_manager_project_in_flutter/presentation/screens/signup_screen.dart';
 import 'package:task_manager_project_in_flutter/presentation/widgets/backGroundWidget.dart';
+import 'package:task_manager_project_in_flutter/presentation/widgets/show_snackbar.dart';
+import 'package:task_manager_project_in_flutter/response_object.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -42,6 +47,12 @@ class _SignInScreenState extends State<SignInScreen> {
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(hintText: 'email address'),
+                    validator:(String?value){
+
+                    if(value?.trim().isEmpty ?? true){
+                      return 'enter your email';
+                    }
+                    return null;} ,
                   ),
                   const SizedBox(
                     height: 8,
@@ -49,6 +60,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   TextFormField(
                     controller: _passwordController,
                       obscureText: true,
+                      validator:(String?value){
+
+                        if(value?.trim().isEmpty ?? true){
+                          return 'enter your password';
+                        }
+                        return null;} ,
                       decoration: InputDecoration(
                         hintText: 'password',
                       )),
@@ -57,7 +74,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   SizedBox(width:double.infinity,
                       child:ElevatedButton(onPressed:(){
-                        Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>BottomNaviagtion()), (route) => false);
+                        login();
                       }, child: Icon(Icons.icecream_outlined))),
                   SizedBox(height: 16,),
                   TextButton(onPressed:(){
@@ -78,6 +95,25 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+ Future <void> login()async{
+
+        Map<String,dynamic> AddParams={
+          "email": _emailController.text.trim(),
+          "password":_passwordController.text,
+        };
+        ResponseObject response=await NetworkCaller.GetPost(Url.login,AddParams);
+        if(response.Issuccess){
+          if(mounted){
+            ShowSnackBarMessage(context,"successfully logged!!!!!!!!");
+            Navigator.pushAndRemoveUntil(context,MaterialPageRoute(builder: (context)=>BottomNaviagtion()), (route) => false);
+          }
+        }else{
+          if(mounted){
+            ShowSnackBarMessage(context, 'login Failed TryAgain');
+          }
+        }
+
   }
   @override
   void dispose() {

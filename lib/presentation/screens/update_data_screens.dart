@@ -50,6 +50,12 @@ class _UpdataDtataState extends State<UpdataDtata> {
                     ) ,
                   ),
                   SizedBox(height: 8,),
+              TextFormField(controller: _email,
+                keyboardType:TextInputType.emailAddress,
+                decoration: InputDecoration(
+                    hintText: 'email'
+                ),),
+                  SizedBox(height: 8,),
                   TextFormField(controller: _fastName,
                     decoration: InputDecoration(
                       hintText: 'first name'
@@ -63,14 +69,7 @@ class _UpdataDtataState extends State<UpdataDtata> {
                     ),
                   ),
                   SizedBox(height: 8,),
-                  TextFormField(controller: _email,
-                    keyboardType:TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                        hintText: 'email'
-                    ),
 
-                  ),
-                  SizedBox(height: 8,),
                   TextFormField(
                     controller: _phone,
                     keyboardType: TextInputType.phone,
