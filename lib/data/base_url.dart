@@ -3,4 +3,5 @@ class Url{
    static String registrationUrl='$baseurl/registration';
    static String login='$baseurl/login';
    static String createTask='$baseurl/createTask';
+   static String taskStatusCount='$baseurl/taskStatusCount';
 }

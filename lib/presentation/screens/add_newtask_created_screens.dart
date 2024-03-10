@@ -68,7 +68,7 @@ class _AddNewTaskCreatedState extends State<AddNewTaskCreated> {
                         onPressed: () {
                           if(_key.currentState!.validate()){
                             addNewTaskCreated();
-                            // Navigator.pop(context);
+                            Navigator.pop(context);
                           }
               
                         },
@@ -93,9 +93,7 @@ class _AddNewTaskCreatedState extends State<AddNewTaskCreated> {
       "status":"New"
     };
     final response = await NetworkCaller.GetPost(Url.createTask, createParams);
-    addnewTaskInProgress=false;
-    setState(() {
-    });
+
     print(response.responsebody);
     if(response.Issuccess){
       _textEditingControllertitle.clear();
@@ -103,13 +101,17 @@ class _AddNewTaskCreatedState extends State<AddNewTaskCreated> {
      if(mounted){
        ShowSnackBarMessage(context, 'created successfully');
      }
-
+      addnewTaskInProgress=false;
+      setState(() {
+      });
     }
     else{
       if(mounted){
         ShowSnackBarMessage(context,response.errormessage ?? 'failed dear!!!!!!!',true);
       }
-
+      addnewTaskInProgress=false;
+      setState(() {
+      });
     }
 
   }
